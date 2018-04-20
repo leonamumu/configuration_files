@@ -1,0 +1,42 @@
+#! /bin/csh -f
+
+#-------------------------------------------------------------------------------
+# GENERIC_USER
+# Platform-specific software versions/locations are set here.  This
+# might be done via modules or updates to the user PATH.  Some env
+# variables might also be set here for use in the Macros file.  Some
+# of the things that might be important here are compiler versions or
+# mpi and netcdf paths.  Samples are commented out below.
+#-------------------------------------------------------------------------------
+
+#--- set modules
+#source /usr/Modules/init/csh
+#module purge
+#module load openmpi/1.2.8-pgi
+#module load netcdf/4.0-pgi
+#module list
+
+#--- pls set env variables for Macros if needed-------------------------------------------#--- pls set paths here, if you don't set it in your local path file: e.g."~/.bashrc"-----
+setenv INTEL_PATH /share/soft/intel
+setenv MPICH_PATH /wps/home/linxf/programFiles/mpich2
+setenv NETCDF_PATH /wps/home/linxf/programFiles/netcdf4.1.2
+setenv PATH ${INTEL_PATH}/bin:${MPICH_PATH}/bin:${NETCDF_PATH}/bin:${PATH}
+setenv LD_LIBRARY_PATH ${INTEL_PATH}/lib:${MPICH_PATH}/lib:${NETCDF_PATH}/lib:${LD_LIBRARY_PATH}
+#-----------------------------------------------------------------------------------------
+#print the mpicc/mpif90 print information by CML. 10/18/2012
+echo "***********************************************"
+echo "mpicc --version"
+mpicc --version
+echo "-----------------------------------------------"
+echo "mpif90 --version"
+mpif90 --version
+echo "***********************************************"
+
+#-------------------------------------------------------------------------------
+# GENERIC_USER
+# Machine specific environment variables are set here.  This might be needed
+# to set MPI, core file, IO,  memory or many other things.
+#-------------------------------------------------------------------------------
+
+#setenv P4_GLOBMEMSIZE 500000000
+
