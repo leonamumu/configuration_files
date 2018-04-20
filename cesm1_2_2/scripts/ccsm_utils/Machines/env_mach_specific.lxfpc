@@ -1,0 +1,24 @@
+#! /bin/csh -f
+
+# -------------------------------------------------------------------------
+# USERDEFINED
+# Edit this file to add module load or other paths needed for the build
+# and run on the system.  Can also include general env settings for machine.
+# Some samples are below
+# -------------------------------------------------------------------------
+
+#source /opt/modules/default/init/csh
+#if ( $COMPILER == "pgi" ) then
+#  module load pgi
+#endif
+#module load netcdf
+
+#limit coredumpsize unlimited
+
+set MPI_PATH=/wps/home/linxf/CLM/CLM4.5_install/software/mpich-3.1.1
+setenv INC_MPI  ${MPI_PATH}/include
+setenv LIB_MPI  ${MPI_PATH}/lib
+
+set NETCDF_PATH=/wps/home/linxf/CLM/CLM4.5_install/software/netcdf-4.3.3.1
+setenv INC_NETCDF  ${NETCDF_PATH}/include 
+setenv LIB_NETCDF  ${NETCDF_PATH}/lib
